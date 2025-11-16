@@ -3,34 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="contactes.css">
+    <title>Mostrar contactes</title>
 </head>
 <body>
     <p>PROCESSA CONTACTES</p>
-    <table>
     <?php
-    $ficheroContactos = file("./contactes31.txt");
-    
-    foreach($ficheroContactos as $usuarios){
-        $separationCommas = explode(', ',$usuarios);
-        echo "<tr>";
-            echo "<td>".$separationCommas[0]."</td>";
-            echo "<td>".$separationCommas[1]."</td>"; 
-            echo "<td>".$separationCommas[2]."</td>";
-            echo "<td>".$separationCommas[3]."</td>";
-        echo "</tr>";
-    }
-    file_put_contents(
-        "contactes31b.txt",
-        str_replace(
-            ', ',
-            '#',
-            $ficheroContactos
-        )
-
-    )
+        //se lee el fichero 
+        $contantes31 = fopen("contactes31.txt","r");
+        $contantes31b = fopen("contactes31b.txt","w");
+        echo "<table>";
+        while(!feof($contantes31)){
+            $infoContactes = explode(",",fgets($contantes31));
+            $todosLosStrings = implode("#",$infoContactes);
+            fwrite($contantes31b, $todosLosStrings);
+            echo "<tr>";
+                for($i=0;$i<count($infoContactes);$i++){
+                    echo "<td>".$infoContactes[$i]."</td>";      
+                }
+            echo "</tr>";
+        }
+            
+        echo "</table>";
+        
+        fclose($contantes31);
     ?>
-    </table>
+     
 </body>
 </html>
