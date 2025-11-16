@@ -23,16 +23,15 @@
         
         if (isset($_POST['usuari'])) {
             $usuari = $_POST["usuari"];
-            $comandes = fopen("comandes.txt","w");
+            $comandes = fopen("comandes.txt","a");
             $comanda = $usuari;
             foreach (array_keys($_POST) as $key) {
                 if ($key == "usuari") {continue;}
                 $changeSpace = str_replace("_", " ",$key);
                 $comanda .= ",".$changeSpace;
             }
-            fwrite($comandes, $comanda);
+            fwrite($comandes, $comanda."\n");
         }
-        echo $comanda;
     ?>
 </body>
 </html>

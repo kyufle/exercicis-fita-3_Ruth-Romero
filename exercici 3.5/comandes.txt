@@ -1,1 +1,2 @@
-dsd,Lámpara LED de escritorio,Mando para videojuegos
+hola,Auriculares inalámbricos,Jarrón de cerámica minimalista,Set de herramientas multifunción
+prueba 2,Auriculares inalámbricos,Libreta ecológica con tapa de corcho,Set de herramientas multifunción
