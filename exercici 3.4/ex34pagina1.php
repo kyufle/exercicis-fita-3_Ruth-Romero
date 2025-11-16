@@ -8,7 +8,16 @@
 <body>
     <?php 
         $ex34 = fopen("ex34.txt","r");
-        echo str_replace("##","<h1>",fgets($ex34));
+        // echo str_replace("##","<h1>",fgets($ex34));
+         while (!feof($ex34)){
+            //coger cada linea del fichero y mostrarla
+            $linea = fgets($ex34);
+            if (str_starts_with($linea,"##")){
+                echo str_replace("##", "<h1>",$linea)."</h1>";
+            } else {
+                echo $linea;
+            }
+        }
     ?>
 </body>
 </html>
